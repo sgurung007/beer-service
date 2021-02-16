@@ -1,6 +1,9 @@
 package com.gurung.beerservice.web.controller;
 
 import com.gurung.beerservice.web.model.BeerDto;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import lombok.val;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -10,6 +13,8 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
+@Slf4j
+@RequiredArgsConstructor
 @Validated
 @RestController
 @RequestMapping("/api/v1/beer")
@@ -23,6 +28,8 @@ public class BeerController {
     @PostMapping
     public ResponseEntity saveNewBeer(@Valid @RequestBody BeerDto beerDto){
 //        TODO: add
+        val suraj_gurung = new String("suraj Gurung");
+        log.debug("in handle post...");
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
