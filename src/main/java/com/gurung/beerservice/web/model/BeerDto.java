@@ -5,6 +5,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.UUID;
@@ -14,12 +17,15 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 public class BeerDto {
+    @Null
     private UUID id;
     private Integer version;
 
     private OffsetDateTime createdData;
     private OffsetDateTime lastModifiedDate;
 
+    @NotNull
+    @NotEmpty
     private String beerName;
 
     private BeerStyleEnum beerStyle;
