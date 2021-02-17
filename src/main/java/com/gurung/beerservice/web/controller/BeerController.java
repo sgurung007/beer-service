@@ -1,6 +1,7 @@
 package com.gurung.beerservice.web.controller;
 
 import com.gurung.beerservice.web.model.BeerDto;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
@@ -21,6 +22,10 @@ import java.util.UUID;
 public class BeerController {
 
     @GetMapping("/{beerId}")
+    @ApiOperation(value = "Find the by id",
+            notes="provide an id to look up specific contact from the ..",
+            response = BeerDto.class
+    )
     public ResponseEntity<BeerDto> getBeerById(@NotNull @PathVariable(name = "beerId") UUID beerId){
         return new ResponseEntity<>(BeerDto.builder().build(), HttpStatus.OK);
     }
